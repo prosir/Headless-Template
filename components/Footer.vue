@@ -1,7 +1,7 @@
 <template>
-    <div class="footer">
-        <div class="footer__store container">
-            <div class="footer__copyright">
+    <footer class="footer">
+        <div class="footer__container">
+            <div class="footer__left">
                 <p>
                     {{
                         $t("footer.copyright", {
@@ -10,52 +10,22 @@
                     }}
                 </p>
             </div>
-            <div class="footer__links">
-                <PlayButton />
-
+            <div class="footer__right">
                 <Button
                     v-if="appConfig.discordUrl"
                     tag="a"
                     :href="appConfig.discordUrl"
-                    variant="secondary"
-                    prepend-icon="discord"
+                    variant="clear"
+                    icon="discord"
                 >
-                    {{ $t("footer.join_our_discord") }}
+                    Discord
                 </Button>
+                <a href="https://checkout.tebex.io/terms">Terms</a>
+                <a href="https://checkout.tebex.io/privacy">Privacy</a>
             </div>
         </div>
-
-        <div class="footer__tebex">
-            <div class="footer__tebex-inner container">
-                <div class="footer__tebex-description">
-                    <a
-                        :href="`https://www.tebex.io/?utm_source=store&utm_campaign=${appConfig.storeId}`"
-                    >
-                        <Icon
-                            name="tebex"
-                            width="51px"
-                            :font-controlled="false"
-                        />
-                    </a>
-                    <p>
-                        {{ $t("footer.tebex.description") }}
-                    </p>
-                </div>
-
-                <div class="footer__tebex__links">
-                    <a href="https://checkout.tebex.io/impressum">
-                        {{ $t("footer.tebex.impressum") }}
-                    </a>
-                    <a href="https://checkout.tebex.io/terms">
-                        {{ $t("footer.tebex.tos") }}
-                    </a>
-                    <a href="https://checkout.tebex.io/privacy">
-                        {{ $t("footer.tebex.privacy_policy") }}
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
+        <div class="footer__accent"></div>
+    </footer>
 </template>
 
 <script setup lang="ts">
@@ -64,105 +34,46 @@ const appConfig = useAppConfig();
 
 <style lang="scss" scoped>
 @use "~/assets/styles/settings" as *;
-@use "~/assets/styles/tools";
-
 .footer {
     width: 100%;
-    background-color: $footer-bg;
-
-    &__store {
+    background: $background-100;
+    border-top: 2px solid $primary;
+    .footer__container {
         display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        align-items: center;
-        margin: 0 auto;
-        width: 100%;
         justify-content: space-between;
-        padding: 16px 20px;
-        gap: 15px;
-
-        @include tools.media-breakpoint-up("md") {
-            height: $footer-height;
-            padding: 0 38px;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 1.5rem 1.5rem 1rem 1.5rem;
+        @media (max-width: 600px) {
+            flex-direction: column;
+            gap: 1rem;
+            padding: 1rem;
         }
     }
-
-    &__tebex {
+    .footer__left {
+        color: $text-medium-emphasis-color;
+        font-size: 1rem;
+    }
+    .footer__right {
         display: flex;
         align-items: center;
-        font-family: "Lato";
-        min-height: $footer-tebex-height;
-        background-color: $footer-tebex-bg;
-        color: $footer-tebex-color;
-        font-size: $footer-tebex-font-size;
-
-        &-inner {
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            align-items: center;
-            height: 100%;
-            gap: 20px;
-            width: 100%;
-            margin: 0 auto;
-            padding: 16px 20px;
-
-            @include tools.media-breakpoint-up("md") {
-                padding: 0 38px;
-            }
-        }
-
-        &-description {
-            svg {
-                min-width: 51px;
-            }
-
-            display: flex;
-            align-items: center;
-            gap: 20px;
-
-            p {
-                @include tools.media-breakpoint-up("md") {
-                    max-width: 450px;
-                }
-
-                @include tools.media-breakpoint-up("lg") {
-                    max-width: initial;
-                }
-            }
-        }
-
-        p {
-            margin-bottom: 0;
-        }
-
-        &__links {
-            display: flex;
-            width: 100%;
-            justify-content: space-between;
-
-            @include tools.media-breakpoint-up("md") {
-                margin-left: auto;
-                width: auto;
-            }
-            a + a {
-                margin-left: 22px;
+        gap: 1.5rem;
+        a, .button {
+            color: $primary;
+            font-weight: 600;
+            text-decoration: none;
+            transition: color 0.2s;
+            &:hover, &:focus {
+                color: darken($primary, 10%);
             }
         }
     }
-
-    &__copyright {
-        p,
-        small {
-            margin-bottom: 0;
-            color: $footer-copyright-color;
-        }
-    }
-
-    &__links {
-        display: flex;
-        align-items: center;
-        gap: 12px;
+    .footer__accent {
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(90deg, $primary 0%, $secondary 100%);
+        margin-top: 1rem;
     }
 }
 </style>

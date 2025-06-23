@@ -22,7 +22,7 @@ export default defineAppConfig({
     // Show confetti after checkout?
     confetti: true,
     // Game type name to display on the store
-    gameTypeName: "Minecraft",
+    gameTypeName: "FiveM",
     // Tebex.js settings see https://docs.tebex.io/developers/tebex.js/integration#config
     tebexJsConfig: {
         theme: "dark",

@@ -5,25 +5,25 @@
 $pure-black: #000000 !default;
 $pure-white: #ffffff !default;
 
-$background-100: #000000 !default;
-$background-200: #0d0d0d !default;
+$background-100: #23272f !default; // Main background: mid gray
+$background-200: #2d2f36 !default; // Slightly lighter for contrast
 
-$c-100: #1a1a1a !default;
-$c-200: #2e3039 !default;
-$c-300: #333333 !default;
-$c-400: #4d4d4d !default;
-$c-500: #808080 !default;
-$c-600: #999999 !default;
-$c-700: #b2b2b2 !default;
-$c-800: #cccccc !default;
-$c-900: #e5e5e5 !default;
+$c-100: #32363f !default; // Card backgrounds, etc.
+$c-200: #393d47 !default; // Slightly lighter for borders/inputs
+$c-300: #444857 !default;
+$c-400: #555a68 !default;
+$c-500: #6c7280 !default;
+$c-600: #8a8f9c !default;
+$c-700: #b0b4be !default;
+$c-800: #d1d4db !default;
+$c-900: #e9eaf0 !default;
 
 // Variants, used for buttons, links, etc.
-$primary: #eb5526 !default;
+$primary: #eb5526 !default; // Orange accent
 $primary-dark: darken($primary, 5%) !default;
 
-$secondary: #f5f5f5 !default;
-$secondary-dark: darken($secondary, 5%) !default;
+$secondary: #393d47 !default; // Dim highlight
+$secondary-dark: #32363f !default;
 
 $tertiary: $c-200 !default;
 $tertiary-dark: darken($c-200, 5%) !default;
@@ -33,8 +33,8 @@ $success-dark: darken($success, 5%) !default;
 
 $danger: #c12e2e !default;
 
-$links: $c-900 !default;
-$links-dark: darken($links, 5%) !default;
+$links: $primary !default;
+$links-dark: darken($primary, 10%) !default;
 
 $clear: transparent !default;
 
@@ -49,23 +49,23 @@ $contrast-text-light: $pure-white !default;
 $contrast-threshold: 150 !default;
 
 // Borders
-$border-bottom-color: rgba(123, 38, 13, 0.1) !default;
+$border-bottom-color: rgba(235, 85, 38, 0.1) !default; // Orange tint
 $border-bottom: 1px solid $border-bottom-color !default;
-$border-radius-base: 2px !default;
+$border-radius-base: 8px !default; // More modern, rounded
 
 // Fonts
-$font-family: "Lato" !default;
-$heading-font-family: "Lato" !default;
+$font-family: "Lato", "Segoe UI", Arial, sans-serif !default;
+$heading-font-family: "Lato", "Segoe UI", Arial, sans-serif !default;
 
 // Test sizing
 $text-base-size: 1rem !default;
 $text-base-color: $pure-white !default;
 $text-scale-ratio: 1.333 !default;
-$text-link-color: $links !default;
+$text-link-color: $primary !default;
 
 // Text colouring
 $text-high-emphasis-color: $pure-white !default;
-$text-medium-emphasis-color: $c-900 !default;
+$text-medium-emphasis-color: $c-700 !default;
 
 // Buttons
 $btn-height-base: 42px !default;
