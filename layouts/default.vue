@@ -1,5 +1,5 @@
 <template>
-    <div class="layout layout--default">
+    <div class="layout layout--default min-h-screen w-full bg-gradient-to-br from-[#23272f] via-[#282c34] to-[#23272f]">
         <Header />
 
         <MenuSidebar />
